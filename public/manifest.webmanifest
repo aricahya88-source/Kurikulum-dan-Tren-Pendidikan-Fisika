@@ -1,0 +1,14 @@
+{
+  "name": "Edu Curicula — Kurikulum dan Tren Pendidikan Fisika",
+  "short_name": "Edu Curicula",
+  "description": "LMS OBE berbasis proyek untuk mata kuliah Kurikulum dan Tren Pendidikan Fisika.",
+  "start_url": "/dashboard",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7FBFF",
+  "theme_color": "#075EA8",
+  "icons": [
+    {"src":"/icon-192.png","sizes":"192x192","type":"image/png"},
+    {"src":"/icon-512.png","sizes":"512x512","type":"image/png"}
+  ]
+}
