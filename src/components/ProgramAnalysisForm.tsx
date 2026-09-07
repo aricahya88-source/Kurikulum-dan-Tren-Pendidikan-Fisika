@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect,useMemo,useState } from 'react';
-import { ClipboardSearch, Send, RotateCcw, Lightbulb } from 'lucide-react';
+import { Search, Send, RotateCcw, Lightbulb } from 'lucide-react';
 import GlassCard from '@/components/GlassCard';
 import { api } from '@/lib/api';
 
@@ -27,7 +27,7 @@ export default function ProgramAnalysisForm({activityId,latestHtml,onSubmitted}:
  const submit=async()=>{if(missing){setMsg(`Lengkapi ${missing} bagian wajib sebelum mengirim.`);return}setBusy(true);setMsg('');try{await api('submitWork',{activity_id:activityId,content_html:toHtml(a),link_url:a.sourceUrl,file_base64:'',file_name:'',file_mime:''});setMsg('Analisis program berhasil dikirim. Revisi tetap dapat dikirim jika diperlukan.');await onSubmitted()}catch(e){setMsg(e instanceof Error?e.message:String(e))}finally{setBusy(false)}};
  return <div className="stack">
    <div className="notice"><Lightbulb size={18}/><div><strong>Gunakan contoh program nyata.</strong> Analisis satu kurikulum, diklat, workshop, atau program pelatihan yang relevan dengan guru, pendidikan sains/fisika, teknologi pembelajaran, laboratorium, atau pengembangan profesional.</div></div>
-   <GlassCard><div className="row gap"><div className="icon-bubble teal"><ClipboardSearch/></div><div><span className="eyebrow">IDENTITAS PROGRAM</span><h3>Program/Kurikulum Pelatihan yang Dianalisis</h3></div></div><div className="form-grid two">
+   <GlassCard><div className="row gap"><div className="icon-bubble teal"><Search/></div><div><span className="eyebrow">IDENTITAS PROGRAM</span><h3>Program/Kurikulum Pelatihan yang Dianalisis</h3></div></div><div className="form-grid two">
      <label className="field full-span"><span>Nama program <b className="required-mark">*</b></span><input value={a.programName} onChange={e=>set('programName',e.target.value)} placeholder="Nama pelatihan/diklat/workshop"/></label>
      <label className="field"><span>Penyelenggara <b className="required-mark">*</b></span><input value={a.provider} onChange={e=>set('provider',e.target.value)} placeholder="Instansi/lembaga"/></label>
      <label className="field"><span>Target peserta <b className="required-mark">*</b></span><input value={a.targetParticipants} onChange={e=>set('targetParticipants',e.target.value)} placeholder="Contoh: Guru Fisika SMA"/></label>
